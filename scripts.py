@@ -1,10 +1,22 @@
+import os
+ruta_main = os.path.dirname(__file__)
+ruta = ruta_main + '/data/data.csv'
+def leer_archivo():
+    with open(ruta, 'r') as op:
+        lines = op.readlines()
+    datos = []
+    for line in lines:
+        columnas = line.split(',')
+        datos.append(columnas)
+    print(len(datos))
+
 def dia_con_mas_casos():
     print('Día con más casos')
 def porcentaje_casos():
     print('Porcentaje de casos')
 def series_tiempo():
     print('Series de tiempo')
-def menu():
+def imprime_opciones():
     print('''
         ==================================================================================
         ==                                                                              ==
@@ -16,6 +28,8 @@ def menu():
         ==                                                                              ==
         ==================================================================================
         ''')
+def menu():
+    imprime_opciones()
     option = 0
     while option != 4:
         option = int(input("Opción: "))
@@ -25,13 +39,13 @@ def menu():
             porcentaje_casos()
         elif option == 3:
             series_tiempo()
-        else:
-            print("Elige una opción válida")    
-       
-
+        elif option == 4:
+            print("Saliendo...")
+        else: 
+            print("Opción inválida")
+            imprime_opciones()    
 def main():
-    
-    menu()
-
+    # menu()
+    leer_archivo()
 if __name__ == '__main__':
     main()
