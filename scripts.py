@@ -8,8 +8,15 @@ def leer_archivo():
     for line in lines:
         columnas = line.split(',')
         datos.append(columnas)
-    print(len(datos))
-
+    print(datos)
+def string_a_entero(lista):
+    lista_enteros = []
+    for i in len(lista):
+        if i == 0 or i == 2:
+            lista_enteros.append(lista[i])
+        else: 
+            lista_enteros.append(int(lista[i]))
+    return lista_enteros
 def dia_con_mas_casos():
     print('Día con más casos')
 def porcentaje_casos():
