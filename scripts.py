@@ -60,7 +60,9 @@ def menu():
             imprime_opciones()    
 def main():
     # menu()
-    print(leer_archivo())
+    string_matriz = leer_archivo()
+    int_matriz = matriz_a_entero(string_matriz)
+    print(int_matriz)
 
     
 
