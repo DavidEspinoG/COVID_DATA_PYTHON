@@ -13,7 +13,8 @@ def string_a_entero(lista):
     lista_enteros = []
     for i in range(len(lista)):
         if i == 0 or i == 2:
-            lista_enteros.append(lista[i])
+            element = lista[i]
+            lista_enteros.append(element[1:-1])
         else: 
             lista_enteros.append(int(lista[i]))
     return lista_enteros
@@ -23,13 +24,21 @@ def matriz_a_entero(matriz):
         elemento = string_a_entero(matriz[i])
         matriz_int.append(elemento)
     return matriz_int
+def fecha_sin_dias(lista_fechas):
+    sin_dias = []
+    for i in range(len(lista_fechas)):
+        if i < 3:
+            sin_dias.append(lista_fechas[i]) 
+        else:
+            fecha = lista_fechas[i]
+            sin_dias.append(fecha[3:])
+    return sin_dias
 def dia_con_mas_casos():
     print('Día con más casos')
 def porcentaje_casos():
     print('Porcentaje de casos')
-def series_tiempo(main_matriz):
+def series_tiempo():
     pass
-    #Probablemente usaré slices para quitar los días a la fecha
 def imprime_opciones():
     print('''
         ==================================================================================
@@ -60,11 +69,7 @@ def menu():
             imprime_opciones()    
 def main():
     # menu()
-    string_matriz = leer_archivo()
-    int_matriz = matriz_a_entero(string_matriz)
-    print(int_matriz)
-
-    
+    pass
 
 if __name__ == '__main__':
     main()
