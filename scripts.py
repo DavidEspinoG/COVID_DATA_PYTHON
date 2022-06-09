@@ -8,17 +8,23 @@ def leer_archivo():
     for line in lines:
         columnas = line.split(',')
         datos.append(columnas)
-    print(datos)
+    return datos
 def string_a_entero(lista):
     lista_enteros = []
-    for i in len(lista):
+    for i in range(len(lista)):
         if i == 0 or i == 2:
             lista_enteros.append(lista[i])
         else: 
             lista_enteros.append(int(lista[i]))
     return lista_enteros
+def matriz_a_entero(matriz):
+    matriz_int = []
+    for i in range(1,len(matriz)):
+        elemento = string_a_entero(matriz[i])
+        matriz_int.append(elemento)
 def dia_con_mas_casos():
     print('Día con más casos')
+    imprime_opciones()
 def porcentaje_casos():
     print('Porcentaje de casos')
 def series_tiempo():
@@ -52,7 +58,9 @@ def menu():
             print("Opción inválida")
             imprime_opciones()    
 def main():
-    # menu()
-    leer_archivo()
+    menu()
+    main_matriz= leer_archivo()
+    int_matriz = matriz_a_entero(main_matriz)
+
 if __name__ == '__main__':
     main()
