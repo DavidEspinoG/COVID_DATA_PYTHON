@@ -22,13 +22,14 @@ def matriz_a_entero(matriz):
     for i in range(1,len(matriz)):
         elemento = string_a_entero(matriz[i])
         matriz_int.append(elemento)
+    return matriz_int
 def dia_con_mas_casos():
     print('Día con más casos')
-    imprime_opciones()
 def porcentaje_casos():
     print('Porcentaje de casos')
-def series_tiempo():
-    print('Series de tiempo')
+def series_tiempo(main_matriz):
+    pass
+    #Probablemente usaré slices para quitar los días a la fecha
 def imprime_opciones():
     print('''
         ==================================================================================
@@ -58,9 +59,10 @@ def menu():
             print("Opción inválida")
             imprime_opciones()    
 def main():
-    menu()
-    main_matriz= leer_archivo()
-    int_matriz = matriz_a_entero(main_matriz)
+    # menu()
+    string_matriz= leer_archivo()
+    main_matriz = matriz_a_entero(string_matriz)
+    
 
 if __name__ == '__main__':
     main()
