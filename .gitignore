@@ -1,1 +1,3 @@
 *.csv
+**/mi_entorno
+**/__pycache__

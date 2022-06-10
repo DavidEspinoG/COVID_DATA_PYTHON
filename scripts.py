@@ -1,6 +1,12 @@
 import os
 ruta_main = os.path.dirname(__file__)
 ruta = ruta_main + '/data/data.csv'
+def quita_enter(lista):
+    resultado = []
+    for e in lista:
+        element = e.strip('\n')
+        resultado.append(element)
+    return resultado
 def regresa_estados(matriz):
     estados = []
     for i in range(len(matriz)):
@@ -30,15 +36,6 @@ def matriz_a_entero(matriz):
         elemento = string_a_entero(matriz[i])
         matriz_int.append(elemento)
     return matriz_int
-def fecha_sin_dias(lista_fechas):
-    sin_dias = []
-    for i in range(len(lista_fechas)):
-        if i < 3:
-            sin_dias.append(lista_fechas[i]) 
-        else:
-            fecha = lista_fechas[i]
-            sin_dias.append(fecha[3:])
-    return sin_dias
 def dia_con_mas_casos():
     print('Día con más casos')
 def porcentaje_casos():
