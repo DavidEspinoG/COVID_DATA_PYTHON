@@ -39,16 +39,16 @@ def menu_series():
         estado = busca_estado(entrada)
 def suma_casos_mes(lista_fechas, lista_casos):
     casos_mes = []
-    suma = 0
-    for i in range(2,len(lista_casos)):
-        if i == len(lista_fechas) -1:
-            break
-        elif lista_fechas[i] == lista_fechas[i + 1]:
+    suma = lista_casos[3]
+    for i in range(4,len(lista_casos)):
+        if lista_fechas[i] == lista_fechas[i - 1]:
             suma += lista_casos[i]
-        else: 
+        elif lista_fechas[i] != lista_fechas[i - 1]:
             casos_mes.append(suma)
-            suma = 0
-    return casos_mes        
+            suma = lista_casos[i]
+        if i + 1 == len(lista_casos):
+            casos_mes.append(suma)   
+    return casos_mes    
 def main():
     fechas = string_matriz[0]
     estados = scr.regresa_estados(int_matriz)
