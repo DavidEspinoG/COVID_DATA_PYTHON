@@ -1,6 +1,12 @@
 import os
 ruta_main = os.path.dirname(__file__)
 ruta = ruta_main + '/data/data.csv'
+def regresa_estados(matriz):
+    estados = []
+    for i in range(len(matriz)):
+        element = matriz[i]
+        estados.append(element[2])
+    return estados
 def leer_archivo():
     with open(ruta, 'r') as op:
         lines = op.readlines()
@@ -68,7 +74,6 @@ def menu():
             print("Opción inválida")
             imprime_opciones()    
 def main():
-    # menu()
     pass
 
 if __name__ == '__main__':

@@ -1,2 +1,3 @@
-texto = '"Aguascalientes"'
-print(texto[1:-1])
+texto = 'nacional'
+x= texto.capitalize()
+print(x)
