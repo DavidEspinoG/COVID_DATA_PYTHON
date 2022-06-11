@@ -1,12 +1,12 @@
 import scripts as scr
 from matplotlib import pyplot as plt
-string_matriz = scr.leer_archivo()
-int_matriz = scr.matriz_a_entero(string_matriz)
+# STRING_MATRIZ = scr.leer_archivo()
+# int_matriz = scr.matriz_a_entero(STRING_MATRIZ)
 def grafica_historico_estado(meses, casos_por_mes, estado):
     fig, ax = plt.subplots(figsize=(15,5))
     ax.plot(meses, casos_por_mes)
     ax.grid(True)
-    ax.set_title(f'Histórico {estado}')
+    ax.set_title(f'Histógrama {estado}')
     ax.set_xlabel('Meses')
     ax.set_ylabel('Casos')
     plt.subplots_adjust(bottom=0.25)
@@ -24,12 +24,12 @@ def quita_dias(lista_fechas):
 def busca_estado(estado):
     resultado = None
     estado = estado.upper()
-    for e in int_matriz: 
+    for e in scr.INT_MATRIZ: 
             if estado in e:
                 resultado = e
     if resultado == None:
         estado = estado.capitalize()
-        for e in int_matriz: 
+        for e in scr.INT_MATRIZ: 
             if estado in e:
                 resultado = e
     return resultado
@@ -41,7 +41,6 @@ def menu_series():
         ==                                                                              ==    
         ==================================================================================
         ''')
-    
     entrada = input('Lugar -> ')
     estado = busca_estado(entrada)
     while estado == None:
@@ -67,15 +66,3 @@ def regresa_meses(lista):
         if element not in resultado:
             resultado.append(element)
     return resultado        
-def main():
-    fechas = string_matriz[0]
-    estados = scr.regresa_estados(int_matriz)
-    fecha_sin_dias = scr.quita_enter(quita_dias(fechas))
-    lista_estado = busca_estado('Aguascalientes')
-    casos_por_mes_estado = suma_casos_mes(fecha_sin_dias, lista_estado)
-    meses = regresa_meses(fecha_sin_dias)
-    grafica_historico_estado(meses, casos_por_mes_estado, 'Yucatán')
-    
-
-if __name__ == '__main__':
-    main() 
