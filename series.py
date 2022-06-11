@@ -1,6 +1,17 @@
 import scripts as scr
+from matplotlib import pyplot as plt
 string_matriz = scr.leer_archivo()
 int_matriz = scr.matriz_a_entero(string_matriz)
+def grafica_historico_estado(meses, casos_por_mes, estado):
+    fig, ax = plt.subplots(figsize=(15,5))
+    ax.plot(meses, casos_por_mes)
+    ax.grid(True)
+    ax.set_title(f'Histórico {estado}')
+    ax.set_xlabel('Meses')
+    ax.set_ylabel('Casos')
+    plt.subplots_adjust(bottom=0.25)
+    plt.xticks(meses, rotation= 80)
+    plt.show()
 def quita_dias(lista_fechas):
     sin_dias = []
     for i in range(len(lista_fechas)):
@@ -48,12 +59,23 @@ def suma_casos_mes(lista_fechas, lista_casos):
             suma = lista_casos[i]
         if i + 1 == len(lista_casos):
             casos_mes.append(suma)   
-    return casos_mes    
+    return casos_mes
+def regresa_meses(lista):
+    resultado = []
+    for i in range(4, len(lista)):
+        element = lista[i]
+        if element not in resultado:
+            resultado.append(element)
+    return resultado        
 def main():
     fechas = string_matriz[0]
     estados = scr.regresa_estados(int_matriz)
     fecha_sin_dias = scr.quita_enter(quita_dias(fechas))
     lista_estado = busca_estado('Aguascalientes')
-    print(suma_casos_mes(fecha_sin_dias, lista_estado ))
+    casos_por_mes_estado = suma_casos_mes(fecha_sin_dias, lista_estado)
+    meses = regresa_meses(fecha_sin_dias)
+    grafica_historico_estado(meses, casos_por_mes_estado, 'Yucatán')
+    
+
 if __name__ == '__main__':
     main() 
