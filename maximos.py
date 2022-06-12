@@ -1,6 +1,3 @@
-from operator import indexOf
-
-from numpy import indices
 import scripts as scr
 from matplotlib import pyplot as plt
 def regresa_max_contagios():
