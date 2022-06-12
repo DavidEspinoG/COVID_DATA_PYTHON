@@ -6,7 +6,7 @@ def grafica_historico_estado(meses, casos_por_mes, estado):
     fig, ax = plt.subplots(figsize=(15,5))
     ax.plot(meses, casos_por_mes)
     ax.grid(True)
-    ax.set_title(f'Histógrama {estado}')
+    ax.set_title(f'Histograma {estado}')
     ax.set_xlabel('Meses')
     ax.set_ylabel('Casos')
     plt.subplots_adjust(bottom=0.25)
@@ -21,17 +21,21 @@ def quita_dias(lista_fechas):
             fecha = lista_fechas[i]
             sin_dias.append(fecha[3:])
     return sin_dias
-def busca_estado(estado):
-    resultado = None
-    estado = estado.upper()
+def busca_estado():
+    entrada = input('Lugar -> ')
+    resultado = False
+    entrada = entrada.upper()
     for e in scr.INT_MATRIZ: 
-            if estado in e:
+            if entrada in e:
                 resultado = e
-    if resultado == None:
-        estado = estado.capitalize()
+    if resultado == False:
+        entrada = entrada.capitalize()
         for e in scr.INT_MATRIZ: 
-            if estado in e:
+            if entrada in e:
                 resultado = e
+    while resultado == False:
+        print('Lugar inválido')
+        resultado = busca_estado()
     return resultado
 def menu_series():
     print('''
@@ -41,12 +45,12 @@ def menu_series():
         ==                                                                              ==    
         ==================================================================================
         ''')
-    entrada = input('Lugar -> ')
-    estado = busca_estado(entrada)
-    while estado == None:
-        print('Lugar inválido')
-        entrada = input('Lugar -> ')
-        estado = busca_estado(entrada)
+    
+    # estado = busca_estado(entrada)
+    # while estado == None:
+    #     print('Lugar inválido')
+    #     entrada = input('Lugar -> ')
+    #     estado = busca_estado(entrada)
 def suma_casos_mes(lista_fechas, lista_casos):
     casos_mes = []
     suma = lista_casos[3]

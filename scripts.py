@@ -58,14 +58,14 @@ def porcentaje_casos():
     datos1, datos2 = por.datos_grafica_barras(datos_tabla_porcentajes)
     por.grafica2(datos1,datos2)
 def series_tiempo():
-    estado_user_input = input('''
+    print('''
         ==================================================================================
         ==                                                                              ==
         ==  Teclea el nombre de algún estado de la república o la opción "Nacional"     ==
         ==                                                                              ==    
         ==================================================================================
-        Lugar -> ''')
-    lista_casos_estado = ser.busca_estado(estado_user_input)
+        ''')
+    lista_casos_estado = ser.busca_estado()
     lista_fechas_sin_dias = quita_enter(ser.quita_dias(STRING_MATRIZ[0]))
     # estados = regresa_estados(INT_MATRIZ)
     casos_por_mes_estado = ser.suma_casos_mes(lista_fechas_sin_dias, lista_casos_estado)
