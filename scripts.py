@@ -3,7 +3,7 @@ import series as ser
 import porcentaje as por
 import maximos as maxi
 RUTA_MAIN = os.path.dirname(__file__)
-RUTA = RUTA_MAIN + '/data/data.csv'
+RUTA = RUTA_MAIN + '/data/defunciones.csv'
 def leer_archivo():
     with open(RUTA, 'r') as op:
         lines = op.readlines()

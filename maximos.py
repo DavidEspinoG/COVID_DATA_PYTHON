@@ -3,13 +3,11 @@ from matplotlib import pyplot as plt
 def regresa_max_contagios():
     max_contagios = 0
     lista_max_contagios = []
-    
     for i in range(len(scr.INT_MATRIZ)):
         list_maximo = []
         elemento = scr.INT_MATRIZ[i][3:]
         maximo = max(elemento)
         lista_max_contagios.append(maximo)
-        
     return  lista_max_contagios
     
 def index_max_contagios(lista):
